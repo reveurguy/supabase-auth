@@ -73,13 +73,43 @@ This command displays any issues (if present) within the code.
 
 ## **Updates**
 
-Whenever you push some major changes or fix any issue, mention the changes briefly in this section and also add the file name/path where the changes were made. <br/>
+### Previous Structure
 
-If this section has some updates written, don't clear them. Just add your changes after that.
+    .
+    ├── ...
+    ├── app
+    │   ├── supabase-provider.tsx
+    │   ├── supabase-server.tsx
+    │   └── api
+    │       └── auth
+    │           └── route.ts
+    └── ...
 
-- Add points like this in a list format ( override this point to get started and add a `-` to make any point a list).
-  <br/>
-  <br/>
+### New Structure
+
+#### **Files Removed**
+
+- `app/supabase-provider.tsx`
+- `app/supabase-server.tsx`
+- `app/api/auth/route.ts`
+- `lib/supabase-helpers.ts`
+
+#### **Files Updated**
+
+- `app/auth/callback/route.ts`
+- `app/layout.tsx` - Removed the Supabase provider wrapper from `app/supabase-provider.tsx`
+- `components/auth/auth-login.tsx`
+- `app/dashboard/page.tsx` - Updated fetch calls to get user details
+- `lib/supabase-helpers.ts` - Updated supabase helper function calls. Check `lib/supabase/helpers.ts` for updated calls
+- `/package.json` - Added "@supabase/ssr" package. Removed "@supabase/auth-helpers-nextjs" package.
+
+#### **Files Added**
+
+- `components/auth/action.ts` - Contains the functions for login, logout, and signup used in `components/auth/auth-login.tsx`
+- `lib/supabase/client.ts` - Contains the supabase client instance function
+- `lib/supabase/server.ts` - Contains the supabase server instance function
+- `lib/supabase/middleware.ts` - Contains the function for `/middleware.ts` file
+- [`/middleware.ts`](/blob/main/middleware.ts) - Contains the middleware function for supabase auth
 
 ## **Learn More**
 
