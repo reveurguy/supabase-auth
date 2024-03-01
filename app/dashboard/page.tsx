@@ -1,25 +1,26 @@
 import LogOut from "@/components/auth/log-out"
-import { getSession } from "@/lib/supabase/server"
+import { Button } from "@/components/ui/button"
+import { addData } from "@/lib/supabase/helpers"
+import { createClient } from "@/lib/supabase/server"
 import { redirect } from "next/navigation"
 
-export default async function ProtectedPage() {
-  const [session] = await Promise.all([getSession()])
-  const user = session?.user
-
-  if (!user) {
-    return redirect("/")
+export default async function DashboardPage() {
+  const supabase = createClient()
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect("/")
   }
-
   return (
     <>
-      <div className="flex w-full flex-1 flex-col items-center justify-center gap-20">
-        <div>
-          <div className="py-6 text-center font-bold">
-            This is a protected page that you can only see as an authenticated
-            user
-          </div>
-          <LogOut />
+      <div className="flex h-screen w-full flex-col items-center justify-center gap-14">
+        <div className="flex flex-col gap-2 text-center">
+          <h1 className="text-3xl font-bold">Welcome, {data.user.email}</h1>
+          <p className="text-lg">You are now logged in!</p>
+          <form>
+            <Button formAction={addData}>Add Data</Button>
+          </form>
         </div>
+        <LogOut />
       </div>
     </>
   )
