@@ -1,68 +1,23 @@
 "use client"
 import { Mail } from "lucide-react"
 import { useState } from "react"
-
-import { getURL } from "@/lib/utils"
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
-import { useRouter } from "next/navigation"
 import { Button } from "../ui/button"
-import { useToast } from "../ui/use-toast"
+import { signInWithEmail, signInWithGoogle } from "./action"
 
 export default function Login() {
   const [email, setEmail] = useState("")
-  const router = useRouter()
-  const supabase = createClientComponentClient()
-  const { toast } = useToast()
-
-  const handleSignInWithGoogle = async () => {
-    try {
-      const response = await fetch("/api/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      const { data } = await response.json()
-      if (!data?.url) throw new Error("No url returned")
-      router.push(data.url)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  const handleSignInWithEmail = async () => {
-    const emptyEmail = /^\s*$/.test(email.trim())
-    if (!emptyEmail) {
-      await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: `${getURL()}/auth/callback`,
-        },
-      })
-      router.refresh()
-      toast({
-        title: "Email Sent Successfully!",
-        description: "Please check your email for the login magic link.",
-        variant: "success",
-      })
-    } else {
-      toast({
-        title: "Error",
-        description: "Please enter an email address!",
-        variant: "destructive",
-      })
-    }
-  }
 
   return (
     <>
-      <Button
-        onClick={handleSignInWithGoogle}
-        variant="default"
-        className="mt-10 text-lg font-bold"
-      >
-        Sign in with Google
-      </Button>
+      <form>
+        <Button
+          formAction={signInWithGoogle}
+          variant="default"
+          className="mt-10 w-full text-lg"
+        >
+          Sign in with Google
+        </Button>
+      </form>
 
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
@@ -75,34 +30,38 @@ export default function Login() {
         </div>
       </div>
 
-      <label
-        htmlFor="email"
-        className="relative block rounded-md border-2 border-black shadow-sm focus-within:border-black focus-within:ring-1 focus-within:ring-black"
-      >
-        <input
-          type="text"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="peer w-full border-none bg-transparent pt-3 placeholder:text-transparent focus:border-transparent focus:outline-none focus:ring-0"
-          placeholder=""
-        />
+      <form>
+        <label
+          htmlFor="email"
+          className="relative block rounded-md border-2 border-black shadow-sm focus-within:border-black focus-within:ring-1 focus-within:ring-black"
+        >
+          <input
+            type="text"
+            id="email"
+            name="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="peer w-full border-none bg-transparent pt-3 placeholder:text-transparent focus:border-transparent focus:outline-none focus:ring-0"
+            placeholder=""
+          />
 
-        <span className="pointer-events-none absolute inset-y-0 end-0 grid w-10 place-content-center text-gray-500">
-          <Mail color="black" />
-        </span>
+          <span className="pointer-events-none absolute inset-y-0 end-0 grid w-10 place-content-center text-gray-500">
+            <Mail color="black" />
+          </span>
 
-        <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white px-1.5 text-base text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-base">
-          Email Address
-        </span>
-      </label>
-      <Button
-        onClick={handleSignInWithEmail}
-        variant="default"
-        className="mt-3 text-lg font-bold"
-      >
-        Sign in with Email
-      </Button>
+          <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white px-1.5 text-base text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-base">
+            Email Address
+          </span>
+        </label>
+        <Button
+          formAction={signInWithEmail}
+          variant="default"
+          className="mt-3 w-full text-lg"
+        >
+          Sign in with Email
+        </Button>
+      </form>
     </>
   )
 }
