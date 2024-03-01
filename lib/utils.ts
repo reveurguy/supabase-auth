@@ -16,3 +16,11 @@ export const getURL = () => {
   url = url.charAt(url.length - 1) === "/" ? url : `${url}/`
   return url
 }
+
+export function objectToQueryString(object: any) {
+  const keys = Object.keys(object)
+  const keyValuePairs = keys.map((key) => {
+    return encodeURIComponent(key) + "=" + encodeURIComponent(object[key])
+  })
+  return keyValuePairs.join("&")
+}
