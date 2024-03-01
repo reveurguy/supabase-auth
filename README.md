@@ -96,19 +96,20 @@ This command displays any issues (if present) within the code.
 
 #### **Files Updated**
 
-- `app/auth/callback/route.ts`
-- `app/layout.tsx` - Removed the Supabase provider wrapper from `app/supabase-provider.tsx`
-- `components/auth/auth-login.tsx`
-- `app/dashboard/page.tsx` - Updated fetch calls to get user details
+- [`app/auth/callback/route.ts`](/app/auth/callback/route.ts)
+- [`app/layout.tsx`](/app/layout.tsx) - Removed the Supabase provider wrapper from `app/supabase-provider.tsx`
+- [`components/auth/auth-login.tsx`](/components/auth/auth-login.tsx)
+- [`app/dashboard/page.tsx`](/app/dashboard/page.tsx) - Updated fetch calls to get user details
 - `lib/supabase-helpers.ts` - Updated supabase helper function calls. Check `lib/supabase/helpers.ts` for updated calls
-- `/package.json` - Added "@supabase/ssr" package. Removed "@supabase/auth-helpers-nextjs" package.
+- [`/package.json`](/package.json) - Added "@supabase/ssr" package. Removed "@supabase/auth-helpers-nextjs" package.
 
 #### **Files Added**
 
-- `components/auth/action.ts` - Contains the functions for login, logout, and signup used in `components/auth/auth-login.tsx`
-- `lib/supabase/client.ts` - Contains the supabase client instance function
-- `lib/supabase/server.ts` - Contains the supabase server instance function
-- `lib/supabase/middleware.ts` - Contains the function for `/middleware.ts` file
+- [`components/auth/action.ts`](/components/auth/action.ts) - Contains the functions for login, logout, and signup used in `components/auth/auth-login.tsx`
+- [`lib/supabase/client.ts`](/lib/supabase/client.ts) - Contains the supabase client instance function
+- [`lib/supabase/server.ts`](/lib/supabase/server.ts) - Contains the supabase server instance function
+- [`lib/supabase/middleware.ts`](/lib/supabase/middleware.ts) - Contains the function for `/middleware.ts` file
+- [`lib/supabase/helpers.ts`](/lib/supabase/helpers.ts) - Contains the helper functions for supabase auth. Previously in `lib/supabase-helpers.ts`
 - [`/middleware.ts`](/middleware.ts) - Contains the middleware function for supabase auth
 
 ## **Learn More**
