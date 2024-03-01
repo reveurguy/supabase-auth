@@ -109,7 +109,7 @@ This command displays any issues (if present) within the code.
 - `lib/supabase/client.ts` - Contains the supabase client instance function
 - `lib/supabase/server.ts` - Contains the supabase server instance function
 - `lib/supabase/middleware.ts` - Contains the function for `/middleware.ts` file
-- [`/middleware.ts`](/blob/main/middleware.ts) - Contains the middleware function for supabase auth
+- [`/middleware.ts`](/middleware.ts) - Contains the middleware function for supabase auth
 
 ## **Learn More**
 
