@@ -1,9 +1,10 @@
 "use server"
+import { cookies } from "next/headers"
 import { createClient } from "./server"
 
-const supabase = createClient()
-
 export async function addData() {
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
   const {
     data: { user },
   } = await supabase.auth.getUser()

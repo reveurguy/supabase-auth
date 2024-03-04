@@ -4,12 +4,12 @@ import { redirect } from "next/navigation"
 import { createClient } from "@/lib/supabase/server"
 import { objectToQueryString } from "@/lib/utils"
 import { revalidatePath } from "next/cache"
-import { headers } from "next/headers"
-
-const origin = headers().get("origin")
-const supabase = createClient()
+import { cookies, headers } from "next/headers"
 
 export async function signInWithGoogle() {
+  const origin = headers().get("origin")
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
   const {
     data: { url },
     error,
@@ -33,9 +33,10 @@ export async function signInWithGoogle() {
 }
 
 export const signInWithEmail = async (formData: FormData) => {
-  const origin = headers().get("origin")
   const email = formData.get("email") as string
-  const supabase = createClient()
+  const origin = headers().get("origin")
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
 
   const { error } = await supabase.auth.signInWithOtp({
     email,
@@ -62,7 +63,9 @@ export const signInWithEmail = async (formData: FormData) => {
 }
 
 export const signOut = async () => {
-  "use server"
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
+  ;("use server")
   await supabase.auth.signOut()
   const data = {
     title: "Logged Out Successfully!",
