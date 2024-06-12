@@ -1,8 +1,8 @@
-import Login from "@/components/auth/auth-login"
-import Messages from "@/components/messages"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { Suspense } from "react"
+import Login from '@/components/auth/auth-login';
+import Messages from '@/components/messages';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { Suspense } from 'react';
 
 export default function LoginPage() {
   return (
@@ -30,5 +30,5 @@ export default function LoginPage() {
         <Messages />
       </Suspense>
     </div>
-  )
+  );
 }

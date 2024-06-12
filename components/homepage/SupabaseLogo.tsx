@@ -6,8 +6,7 @@ export default function SupabaseLogo() {
       height="100"
       viewBox="0 0 115 23"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_4671_51136)">
         <g clipPath="url(#clip1_4671_51136)">
           <path
@@ -64,8 +63,7 @@ export default function SupabaseLogo() {
           y1="11.1486"
           x2="19.3439"
           y2="14.4777"
-          gradientUnits="userSpaceOnUse"
-        >
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#249361" />
           <stop offset="1" stopColor="#3ECF8E" />
         </linearGradient>
@@ -75,8 +73,7 @@ export default function SupabaseLogo() {
           y1="6.42177"
           x2="11.5325"
           y2="13.1398"
-          gradientUnits="userSpaceOnUse"
-        >
+          gradientUnits="userSpaceOnUse">
           <stop />
           <stop offset="1" stopOpacity="0" />
         </linearGradient>
@@ -98,5 +95,5 @@ export default function SupabaseLogo() {
         </clipPath>
       </defs>
     </svg>
-  )
+  );
 }

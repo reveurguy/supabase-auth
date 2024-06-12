@@ -1,5 +1,5 @@
-import NextLogo from "./NextLogo"
-import SupabaseLogo from "./SupabaseLogo"
+import NextLogo from './NextLogo';
+import SupabaseLogo from './SupabaseLogo';
 
 export default function Header() {
   return (
@@ -11,5 +11,5 @@ export default function Header() {
       </div>
       <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
     </div>
-  )
+  );
 }

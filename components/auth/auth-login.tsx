@@ -1,11 +1,11 @@
-"use client"
-import { Mail } from "lucide-react"
-import { useState } from "react"
-import { Button } from "../ui/button"
-import { signInWithEmail, signInWithGoogle } from "./action"
+'use client';
+import { Mail } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from '../ui/button';
+import { signInWithEmail, signInWithGoogle } from './action';
 
 export default function Login() {
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState('');
 
   return (
     <>
@@ -13,8 +13,7 @@ export default function Login() {
         <Button
           formAction={signInWithGoogle}
           variant="default"
-          className="mt-10 w-full text-lg"
-        >
+          className="mt-10 w-full text-lg">
           Sign in with Google
         </Button>
       </form>
@@ -33,8 +32,7 @@ export default function Login() {
       <form>
         <label
           htmlFor="email"
-          className="relative block rounded-md border-2 border-black shadow-sm focus-within:border-black focus-within:ring-1 focus-within:ring-black"
-        >
+          className="relative block rounded-md border-2 border-black shadow-sm focus-within:border-black focus-within:ring-1 focus-within:ring-black">
           <input
             type="text"
             id="email"
@@ -57,11 +55,10 @@ export default function Login() {
         <Button
           formAction={signInWithEmail}
           variant="default"
-          className="mt-3 w-full text-lg"
-        >
+          className="mt-3 w-full text-lg">
           Sign in with Email
         </Button>
       </form>
     </>
-  )
+  );
 }

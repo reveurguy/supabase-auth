@@ -1,11 +1,11 @@
-import Header from "@/components/homepage/header"
-import { Button } from "@/components/ui/button"
-import { BeamOfLight } from "@/components/ui/spotlight"
-import Link from "next/link"
+import Header from '@/components/homepage/header';
+import { Button } from '@/components/ui/button';
+import { BeamOfLight } from '@/components/ui/spotlight';
+import Link from 'next/link';
 
 export const metadata = {
-  title: "Log in",
-}
+  title: 'Log in',
+};
 
 export default function LoginPage() {
   return (
@@ -20,5 +20,5 @@ export default function LoginPage() {
         </Link>
       </div>
     </div>
-  )
+  );
 }

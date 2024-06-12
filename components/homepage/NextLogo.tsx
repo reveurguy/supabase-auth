@@ -5,8 +5,7 @@ export default function NextLogo() {
       width="150"
       height="100"
       role="img"
-      viewBox="0 0 394 79"
-    >
+      viewBox="0 0 394 79">
       <path
         d="M261.919 0.0330722H330.547V12.7H303.323V79.339H289.71V12.7H261.919V0.0330722Z"
         fill="white"
@@ -42,5 +41,5 @@ export default function NextLogo() {
         fill="white"
       />
     </svg>
-  )
+  );
 }

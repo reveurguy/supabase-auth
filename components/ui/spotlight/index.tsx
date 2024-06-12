@@ -1,17 +1,16 @@
-import { cn } from "@/lib/utils"
-import styles from "./spotlight.module.css"
+import { cn } from '@/lib/utils';
+import styles from './spotlight.module.css';
 
 export function BeamOfLight() {
   return (
     <svg
       className={cn(
         styles.animateBeam,
-        "pointer-events-none absolute left-0 top-40 z-[1] h-[169%] w-[138%] md:-top-20 md:left-60 lg:w-[84%]"
+        'pointer-events-none absolute left-0 top-40 z-[1] h-[169%] w-[138%] md:-top-20 md:left-60 lg:w-[84%]'
       )}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3787 2842"
-      fill="none"
-    >
+      fill="none">
       <g filter="url(#filter0_f_1065_8)">
         <ellipse
           cx="1924.71"
@@ -31,8 +30,7 @@ export function BeamOfLight() {
           width="3785.16"
           height="2840.26"
           filterUnits="userSpaceOnUse"
-          colorInterpolationFilters="sRGB"
-        >
+          colorInterpolationFilters="sRGB">
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
@@ -47,5 +45,5 @@ export function BeamOfLight() {
         </filter>
       </defs>
     </svg>
-  )
+  );
 }
